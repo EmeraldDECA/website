@@ -530,32 +530,31 @@
 
         <!-- Advisor -->
 
-        <div
-            class="officer-card"
-            onclick="openModal(
-                'Bailey Udoutch',
-                'Advisor',
-                'Mrs. Udoutch is dedicated to guiding the Emerald High DECA chapter toward excellence. With years of experience supporting student leaders, she oversees overall operations and ensures members have access to regional and state DECA events.'
-            )"
-        >
+ <!-- Advisor -->
 
-            <div class="officer-photo">
+<div
+    class="officer-card"
+    onclick="openModal(
+        'Bailey Noël Udoutch',
+        'Advisor',
+        this.dataset.bio
+    )"
+    data-bio="Hi! I’m Bailey Noël Udoutch, the Business & Marketing teacher and DECA advisor at Emerald High School. This is my fifth year teaching Career & Technical Education, and serving as a DECA Advisor. I’m passionate about creating real-world experiences that help students build confidence, leadership skills, and career readiness.|||I launched Emerald High School’s DECA chapter in 2025 and am excited to continue growing the program this year. In addition to advising Emerald DECA, I serve as a Director on the California State Association of DECA Board of Directors, representing the Northern California districts.|||Before becoming a teacher, I worked in marketing communications, ran a home bakery, and led international student travel experiences across Europe. I love bringing those experiences into the classroom and helping students discover their potential through learning, competition, and community."
+>
 
-                <span>PHOTO COMING SOON</span>
+    <div class="officer-photo">
+        <span>PHOTO COMING SOON</span>
+    </div>
 
-            </div>
+    <h2>Bailey Noël Udoutch</h2>
 
-            <h2>Bailey Udoutch</h2>
+    <h3>ADVISOR</h3>
 
-            <h3>ADVISOR</h3>
+    <span class="click-hint">
+        Click to read bio →
+    </span>
 
-            <span class="click-hint">
-
-                Click to read bio →
-
-            </span>
-
-        </div>
+</div>
 
 
 
@@ -1060,15 +1059,18 @@
 
     function openModal(name, title, bio) {
 
-        document.getElementById('modalName').innerText = name;
+    document.getElementById('modalName').innerText = name;
 
-        document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalTitle').innerText = title;
 
-        document.getElementById('modalBio').innerText = bio;
+    document.getElementById('modalBio').innerHTML = bio
+        .split('|||')
+        .map(paragraph => `<p>${paragraph}</p>`)
+        .join('');
 
-        document.getElementById('officerModal').style.display = 'flex';
+    document.getElementById('officerModal').style.display = 'flex';
 
-    }
+}
 
 
 
